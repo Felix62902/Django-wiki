@@ -1,0 +1,6 @@
+{
+  "python.analysis.autoImportCompletions": true,
+  "[jinja-html]": {
+    "editor.defaultFormatter": "vscode.emmet"
+  }
+}

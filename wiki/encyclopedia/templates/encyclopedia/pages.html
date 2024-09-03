@@ -1,0 +1,28 @@
+{% extends "encyclopedia/layout.html" %} 
+
+{% block title %} 
+{{title}}
+{%endblock%} 
+
+{% block body %} 
+{# tell Django to render html rather thanescaping it  #}
+{{content|safe}}
+
+<form action="{% url 'edit' %}" method="POST" >
+    {% csrf_token %}
+    <input type="hidden" name="title" value="{{title}}"/>
+    <button type="submit" class="submit-button">Edit</button>
+</form>
+
+<style>
+    .submit-button{
+        border: none;
+        padding: 12px 24px 12px 24px;
+        border-radius: 4px;
+        background-color: cornflowerblue;
+        text-decoration: none;
+        color:black;
+    }
+</style>
+
+ {% endblock %}

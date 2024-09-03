@@ -1,0 +1,39 @@
+{% extends "encyclopedia/layout.html" %} 
+
+
+{% block title %} 
+Editing
+{% endblock %} 
+
+{% block body %}
+
+<h1>{{title|safe}}</h1>
+
+<form  action="{% url 'save_edit' %}" method="POST"> 
+    {% csrf_token %}
+    <h5>Markdown content</h5>
+    <input type="hidden" name="title" value={{title}}/>
+    <textarea class="content" name="newContent">{{content}}</textarea>
+    </br>
+    <button type="submit" class="submit-button">Save</button>
+</form>
+
+
+<style>
+    .content{
+        height:260px;
+        background-color: #f8f8f8;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .submit-button{
+        border: none;
+        padding: 12px 24px 12px 24px;
+        border-radius: 4px;
+        background-color: cornflowerblue;
+        text-decoration: none;
+        color:black;
+    }
+</style>
+{% endblock %}

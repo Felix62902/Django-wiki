@@ -1,0 +1,58 @@
+{% extends "encyclopedia/layout.html" %} 
+
+{% block title %} 
+New Page
+{%endblock%} 
+
+{% block body %} 
+
+<h1>New Page</h1>
+
+<form method="POST" action={% url 'create' %} class="createForm">
+    {% csrf_token %}
+    <h3>Title</h3>
+    <input type="text" name="t" class="title"/>
+    <h3>Content</h3>
+    <textarea name="c" class="content"></textarea><br>
+
+    <h4 style="color:red">{{error}}</h4>
+    <button type="submit" name="save" class="submit-button">Save</button>
+</form>
+
+{% comment %} adding CSS to Form and its input fields {% endcomment %}
+
+<style>
+.createForm{
+    margin:1.2rem;
+}
+
+
+.title {
+    width:80%;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5em;
+    background-color: #f8f8f8;
+}
+
+.content{
+    height:260px;
+    background-color: #f8f8f8;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-button{
+    border: none;
+    padding: 12px 24px 12px 24px;
+    border-radius: 4px;
+    margin-top: 24px;
+    background-color: cornflowerblue;
+}
+
+{% comment %} form{
+    background-color: red
+} {% endcomment %}
+
+</style> 
+ {% endblock %}
