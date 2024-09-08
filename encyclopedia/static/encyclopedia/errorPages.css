@@ -1,0 +1,11 @@
+.container {
+  text-align: center;
+  flex-basis: content;
+  height: 100%;
+  align-content: center;
+  font-weight: bold;
+}
+
+body {
+  font-family: Tahoma, sans-serif;
+}
